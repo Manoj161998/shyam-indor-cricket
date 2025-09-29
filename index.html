@@ -221,7 +221,9 @@
     <a href="#booking" class="btn">Book Your Slot Now</a>
   </section>
    <section class="offer">
-        ⚡ Limited Offer: First 6 Ball trail Session Free if You Book Today!<br>
+        <a href="#booking" id="limited-offer-link" style="color:white; text-decoration:none;">
+    ⚡ Limited Offer: First Session Free if You Book Today!
+  </a>
         <span id="offer-timer" style="font-weight:bold;"></span>
     </section>
 
@@ -271,7 +273,7 @@
         <option>Bowling Machine — 15 overs ₹150</option>
         <option>Bowling Machine — 25 overs ₹250</option>
         <option>Bowling Machine — 1 hr ₹800</option>
-        <option>Free 6 Ball trail session</option>
+        <option>Free 10 Ball trail session</option>
       </select>
       <input type="date" id="date" required />
       <div class="slots">
@@ -381,10 +383,36 @@
         }
         const timerInterval = setInterval(updateTimer, 1000);
         updateTimer();
+    <script>
+  const limitedOfferLink = document.getElementById("limited-offer-link");
+  const programSelect = document.getElementById("program");
+
+  limitedOfferLink.addEventListener("click", (e) => {
+    e.preventDefault();
+    // Scroll to booking section
+    document.getElementById("booking").scrollIntoView({ behavior: "smooth" });
+
+    // Prefill program select with Free 10 Ball Trial Session
+    // Check if the option exists; if not, add it
+    let freeOption = Array.from(programSelect.options).find(
+      option => option.value === "Free 10 Ball Trial Session"
+    );
+    if (!freeOption) {
+      const option = document.createElement("option");
+      option.value = "Free 10 Ball Trial Session";
+      option.text = "Free 10 Ball Trial Session";
+      programSelect.appendChild(option);
+      freeOption = option;
+    }
+    programSelect.value = freeOption.value;
+  });
+</script>
+
   </script>
 
 </body>
 
 
 </html>
+
 
