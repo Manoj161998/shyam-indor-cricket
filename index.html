@@ -1,0 +1,387 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Shyam Cricket Academy</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+  <style>
+    :root {
+      --accent: #0b6e4f;
+      --highlight: #ff5722;
+      --muted: #6b7280;
+    }
+
+    body {
+      font-family: 'Inter', Arial, sans-serif;
+      margin: 0;
+      background: #f9fafb;
+      color: #0f172a;
+    }
+
+    h1,
+    h2,
+    h3 {
+      margin: 0;
+    }
+
+    .btn {
+      background: var(--accent);
+      color: white;
+      padding: 12px 20px;
+      border-radius: 8px;
+      font-weight: bold;
+      text-decoration: none;
+      display: inline-block;
+      transition: all 0.2s;
+      border: none;
+      cursor: pointer;
+    }
+
+    .btn:hover {
+      background: #065a43;
+    }
+
+    header {
+      background: linear-gradient(90deg, var(--accent), #087e6b);
+      color: white;
+      padding: 16px 24px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .hero {
+      background: #000;
+      position: relative;
+      padding: 80px 20px;
+      text-align: center;
+      color: white;
+    }
+
+    .hero img {
+      width: 100%;
+      height: auto;
+      object-fit: cover;
+      position: absolute;
+      top: 0;
+      left: 0;
+      z-index: -1;
+    }
+
+    .hero h1 {
+      font-size: 32px;
+      font-weight: 800;
+    }
+
+    .hero p {
+      font-size: 18px;
+      margin: 12px 0;
+    }
+
+    .programs,
+    .videos,
+    .external-reviews,
+    .booking,
+    .testimonials {
+      padding: 40px 20px;
+      max-width: 1100px;
+      margin: auto;
+    }
+
+    .programs-grid,
+    .videos-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 16px;
+    }
+
+    .card,
+    .review,
+    .video-wrapper {
+      background: white;
+      padding: 20px;
+      border-radius: 12px;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+      text-align: center;
+      cursor: pointer;
+      transition: all 0.2s;
+    }
+
+    .card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 6px 15px rgba(0, 0, 0, 0.15);
+    }
+
+    .video-wrapper iframe {
+      width: 100%;
+      height: 200px;
+      border-radius: 12px;
+    }
+
+    .testimonial {
+      font-style: italic;
+      margin: 10px auto;
+      max-width: 500px;
+    }
+
+    .booking form {
+      max-width: 500px;
+      margin: auto;
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+
+    input,
+    select,
+    textarea {
+      padding: 12px;
+      border-radius: 8px;
+      border: 1px solid #ddd;
+    }
+
+    .slots {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+      text-align: left;
+    }
+
+    .slot-group {
+      display: flex;
+      gap: 8px;
+      flex-wrap: wrap;
+    }
+
+    .slot {
+      padding: 8px 14px;
+      border: 1px dashed #aaa;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: all 0.2s;
+    }
+
+    .slot.selected {
+      background: var(--accent);
+      color: white;
+      border: 1px solid var(--accent);
+    }
+
+    .offer {
+      background: var(--highlight);
+      color: white;
+      text-align: center;
+      padding: 16px;
+      font-size: 18px;
+      font-weight: bold;
+    }
+
+    footer {
+      background: #0b6e4f;
+      color: white;
+      text-align: center;
+      padding: 20px;
+      margin-top: 20px;
+    }
+
+    @media (max-width:768px) {
+      .hero h1 {
+        font-size: 24px;
+      }
+
+      .hero p {
+        font-size: 16px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <header>
+    <div><strong>Shyam Cricket Academy</strong></div>
+<div style="display:flex;align-items:center;gap:10px;">
+    <a href="#booking" class="btn">📅 Book Now</a>
+    <a href="https://www.instagram.com/YOUR_INSTAGRAM" target="_blank" style="color:white;font-size:20px;">
+      <i class="fab fa-instagram"></i>
+    </a>
+    <a href="https://www.youtube.com/channel/YOUR_YOUTUBE" target="_blank" style="color:white;font-size:20px;">
+      <i class="fab fa-youtube"></i>
+    </a>
+  </div>
+  </header>
+
+  <section class="hero">
+    <img src="hero.jpg" alt="Shyam Cricket Academy" loading="lazy">
+    <h1>Train Like a Pro – Join Shyam Indoor Cricket</h1>
+    <p>Expert coaching, world-class indoor facilities, and personalized training programs in Bahadurgarh.</p>
+    <a href="#booking" class="btn">Book Your Slot Now</a>
+  </section>
+   <section class="offer">
+        ⚡ Limited Offer: First Session Free if You Book Today!<br>
+        <span id="offer-timer" style="font-weight:bold;"></span>
+    </section>
+
+  <section class="programs">
+    <h2>Our Popular Programs</h2>
+    <div class="programs-grid">
+      <div class="card" data-program="KIDS-FIT — ₹999">
+        <h3>KIDS-FIT Program</h3>
+        <p>Fun activities for kids • ₹999</p>
+      </div>
+      <div class="card" data-program="Personal Batting — ₹1200/hr">
+        <h3>Personal Batting</h3>
+        <p>1-on-1 coaching • ₹1200/hr</p>
+      </div>
+      <div class="card" data-program="Bowling Machine — 15 overs ₹150">
+        <h3>Bowling Machine</h3>
+        <p>15 overs ₹150 • 25 overs ₹250 • 1 hr ₹800</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="videos">
+    <h2>Watch Our Training in Action</h2>
+    <div class="elfsight-app-ca6cad05-1a3e-4de2-b2b6-6c9420d80006" data-elfsight-app-lazy></div>
+    </div>
+  </section>
+
+  <section class="testimonials">
+    <h2>What Parents & Players Say</h2>
+    <p class="testimonial">“My son improved his batting in just 3 months!” – Rajesh, Parent</p>
+    <p class="testimonial">“Best indoor cricket facility in Bahadurgarh!” – Ankit, Player</p>
+  </section>
+
+  <section class="external-reviews">
+    <h2>Google Reviews</h2>
+    <div class="elfsight-app-18376b63-216e-4f3c-83e7-9baec5b564b1" data-elfsight-app-lazy></div>
+  </section>
+
+  <section class="booking" id="booking">
+    <h2>Reserve Your Spot Today</h2>
+    <form id="bookingForm">
+      <input type="text" id="name" placeholder="Full Name" required />
+      <input type="tel" id="phone" placeholder="Phone Number" required />
+      <select id="program">
+        <option>KIDS-FIT — ₹999</option>
+        <option>Personal Batting — ₹1200/hr</option>
+        <option>Bowling Machine — 15 overs ₹150</option>
+        <option>Bowling Machine — 25 overs ₹250</option>
+        <option>Bowling Machine — 1 hr ₹800</option>
+      </select>
+      <input type="date" id="date" required />
+      <div class="slots">
+        <strong>🌅 Morning Slots</strong>
+        <div class="slot-group">
+          <div class="slot" data-slot="06:00 - 07:00">06:00 - 07:00</div>
+          <div class="slot" data-slot="07:30 - 08:30">07:30 - 08:30</div>
+          <div class="slot" data-slot="09:00 - 10:00">09:00 - 10:00</div>
+        </div>
+        <strong>🌇 Evening Slots</strong>
+        <div class="slot-group">
+          <div class="slot" data-slot="07:00 - 08:00">07:00 - 08:00</div>
+          <div class="slot" data-slot="08:30 - 09:30">08:30 - 09:30</div>
+          <div class="slot" data-slot="09:30 - 10:30">09:30 - 10:30</div>
+        </div>
+      </div>
+      <button type="submit" class="btn">Confirm My Booking on WhatsApp</button>
+    </form>
+  </section>
+
+  <footer>
+    📍Saini Pakoda chowk, Nya Gaon, Bahadurgarh-124507, Haryana | Call: 8930013793 / 9518185831 <br>
+  Follow us: 
+  <a href="https://www.instagram.com/YOUR_INSTAGRAM" target="_blank" style="color:white;margin-right:10px;">
+    <i class="fab fa-instagram"></i> Instagram
+  </a>
+  <a href="https://www.youtube.com/channel/YOUR_YOUTUBE" target="_blank" style="color:white;">
+    <i class="fab fa-youtube"></i> YouTube
+  </a>
+  </footer>
+
+  <script src="https://apps.elfsight.com/p/platform.js" defer></script>
+  <script>
+    // WhatsApp Booking
+    const ADMIN_WHATSAPP_NUMBER = "919518185831";
+    const form = document.getElementById("bookingForm");
+    let selectedSlot = null;
+    let selectedSession = null;
+
+    // Slot selection
+    document.querySelectorAll(".slot").forEach(slot => {
+      slot.addEventListener("click", () => {
+        document.querySelectorAll(".slot").forEach(s => s.classList.remove("selected"));
+        slot.classList.add("selected");
+        selectedSlot = slot.dataset.slot;
+        selectedSession = slot.closest(".slot-group").previousElementSibling.textContent.includes("Morning") ? "Morning" : "Evening";
+      });
+    });
+
+    // Program card auto-select
+    document.querySelectorAll(".programs-grid .card").forEach(card => {
+      card.addEventListener("click", () => {
+        document.getElementById("program").value = card.dataset.program;
+        window.location.href = "#booking";
+      });
+    });
+
+    // Booking submission
+    form.addEventListener("submit", (e) => {
+      e.preventDefault();
+      const name = document.getElementById("name").value.trim();
+      const phone = document.getElementById("phone").value.trim();
+      const program = document.getElementById("program").value;
+      const date = document.getElementById("date").value;
+
+      if (!name || !phone || !date || !selectedSlot) {
+        alert("Please fill all fields and select a slot");
+        return;
+      }
+
+      const message = `*Cricket Academy Booking*%0A*Name:* ${encodeURIComponent(name)}%0A*Phone:* ${encodeURIComponent(phone)}%0A*Program:* ${encodeURIComponent(program)}%0A*Date:* ${encodeURIComponent(date)}%0A*Slot:* ${encodeURIComponent(selectedSession + " – " + selectedSlot)}`;
+      window.open(`https://wa.me/${ADMIN_WHATSAPP_NUMBER}?text=${message}`, "_blank");
+    });
+
+    // Minimum date
+    document.getElementById("date").setAttribute("min", new Date().toISOString().split("T")[0]);
+
+    // Lazy load YouTube videos
+    const iframes = document.querySelectorAll('iframe[data-src]');
+    const lazyLoad = () => {
+      const windowBottom = window.innerHeight + window.scrollY;
+      iframes.forEach(iframe => {
+        if (iframe.dataset.src && iframe.getBoundingClientRect().top + window.scrollY < windowBottom) {
+          iframe.src = iframe.dataset.src;
+          iframe.removeAttribute('data-src');
+        }
+      });
+    };
+    window.addEventListener('scroll', lazyLoad);
+    window.addEventListener('resize', lazyLoad);
+    lazyLoad();
+
+    const now = new Date();
+        const offerEnd = new Date(now.getFullYear(), now.getMonth(), now.getDate(), 23, 59, 59);
+        function updateTimer() {
+            const now = new Date();
+            const distance = offerEnd - now;
+            if (distance < 0) {
+                document.getElementById('offer-timer').textContent = "Offer Expired!";
+                clearInterval(timerInterval);
+                return;
+            }
+            const hours = Math.floor((distance / (1000 * 60 * 60)));
+            const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+            const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+            document.getElementById('offer-timer').textContent = `Hurry! Offer ends in ${hours}h ${minutes}m ${seconds}s`;
+        }
+        const timerInterval = setInterval(updateTimer, 1000);
+        updateTimer();
+  </script>
+
+</body>
+
+</html>
